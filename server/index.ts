@@ -13,7 +13,7 @@ export function createServer() {
   app.use(cors());
 
   // Stripe webhook must get raw body. Register BEFORE json/urlencoded.
-  app.post("/stripe/webhook", express.raw({ type: "application/json" }), handleStripeWebhook);
+  app.post("/stripe/webhook", express.raw({ type: "*/*" }), handleStripeWebhook);
 
   // Other middleware
   app.use(express.json());
