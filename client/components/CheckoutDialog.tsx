@@ -28,6 +28,7 @@ export function CheckoutDialog({
   onRemoveAll: (id: string) => void;
 }) {
   const [method, setMethod] = useState<"card" | "apple" | "google" | "crypto">("card");
+  const [paying, setPaying] = useState(false);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -94,9 +95,11 @@ export function CheckoutDialog({
                     <input className="h-11 rounded-md border border-blue-900/60 bg-[#050B1F]/70 px-3 text-sm" placeholder="CVC" inputMode="numeric" />
                   </div>
                   <Button
-                    className="w-full bg-sky-400 text-slate-900 hover:bg-sky-300 transition-transform hover:-translate-y-px shadow-lg shadow-sky-500/20"
+                    className="w-full bg-sky-400 text-slate-900 hover:bg-sky-300 transition-transform hover:-translate-y-px shadow-lg shadow-sky-500/20 disabled:opacity-60"
+                    disabled={paying}
                     onClick={async () => {
                       try {
+                        setPaying(true);
                         const res = await fetch(`/api/checkout`, {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
@@ -105,12 +108,24 @@ export function CheckoutDialog({
                             lines: lines.map(l => ({ name: l.name, qty: l.qty, priceLocal: l.priceLocal })),
                           }),
                         });
+                        if (!res.ok) {
+                          const err = await res.json().catch(() => ({}));
+                          console.error("/api/checkout failed", err);
+                          alert("Checkout failed. Please try again.");
+                          return;
+                        }
                         const data = await res.json();
                         if (data?.url) window.location.assign(data.url);
-                      } catch {}
+                        else alert("No checkout URL returned.");
+                      } catch (e) {
+                        console.error(e);
+                        alert("Network error starting checkout.");
+                      } finally {
+                        setPaying(false);
+                      }
                     }}
                   >
-                    Pay {new Intl.NumberFormat(undefined, { style: "currency", currency }).format(totalLocal)}
+                    {paying ? "Redirecting…" : `Pay ${new Intl.NumberFormat(undefined, { style: "currency", currency }).format(totalLocal)}`}
                   </Button>
                 </div>
               )}
