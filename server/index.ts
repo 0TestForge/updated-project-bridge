@@ -5,6 +5,7 @@ import { handleDemo } from "./routes/demo";
 import { handleRates } from "./routes/rates";
 
 import { handleStripeWebhook } from "./routes/stripe";
+import { handleCreateCheckout } from "./routes/checkout";
 
 export function createServer() {
   const app = express();
@@ -27,6 +28,7 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
   app.get("/api/rates", handleRates);
+  app.post("/api/checkout", handleCreateCheckout);
 
   return app;
 }

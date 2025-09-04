@@ -93,7 +93,23 @@ export function CheckoutDialog({
                     <input className="h-11 rounded-md border border-blue-900/60 bg-[#050B1F]/70 px-3 text-sm" placeholder="MM/YY" inputMode="numeric" />
                     <input className="h-11 rounded-md border border-blue-900/60 bg-[#050B1F]/70 px-3 text-sm" placeholder="CVC" inputMode="numeric" />
                   </div>
-                  <Button className="w-full bg-sky-400 text-slate-900 hover:bg-sky-300 transition-transform hover:-translate-y-px shadow-lg shadow-sky-500/20">
+                  <Button
+                    className="w-full bg-sky-400 text-slate-900 hover:bg-sky-300 transition-transform hover:-translate-y-px shadow-lg shadow-sky-500/20"
+                    onClick={async () => {
+                      try {
+                        const res = await fetch(`/api/checkout`, {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            currency,
+                            lines: lines.map(l => ({ name: l.name, qty: l.qty, priceLocal: l.priceLocal })),
+                          }),
+                        });
+                        const data = await res.json();
+                        if (data?.url) window.location.assign(data.url);
+                      } catch {}
+                    }}
+                  >
                     Pay {new Intl.NumberFormat(undefined, { style: "currency", currency }).format(totalLocal)}
                   </Button>
                 </div>
