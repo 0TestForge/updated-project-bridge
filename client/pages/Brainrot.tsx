@@ -198,10 +198,10 @@ export default function Brainrot() {
   return (
     <div>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-amber-900 via-amber-950 to-black" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-900 via-emerald-950 to-black" />
         <div className="container py-10 md:py-14">
           <div className="flex items-center justify-between">
-            <span className="inline-block rounded-lg bg-amber-900/70 px-3 py-1.5 text-sm font-bold uppercase tracking-widest text-amber-100 ring-1 ring-amber-700/40">Steal a Brainrot</span>
+            <span className="inline-block rounded-lg bg-emerald-900/70 px-3 py-1.5 text-sm font-bold uppercase tracking-widest text-emerald-100 ring-1 ring-emerald-700/40">Steal a Brainrot</span>
           </div>
 
           <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -209,12 +209,12 @@ export default function Brainrot() {
               <Button variant="default" size="sm" onClick={() => setFilter("all")}>All</Button>
             </div>
             <div className="w-full md:w-80">
-              <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search" className="bg-amber-950/40 border-amber-800/50" />
+              <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search" className="bg-emerald-950/40 border-emerald-800/50" />
             </div>
           </div>
 
           {showHint && (
-            <div className="mt-4 rounded-lg border border-amber-700/40 bg-amber-900/40 p-3 text-sm text-amber-100 flex items-center justify-between">
+            <div className="mt-4 rounded-lg border border-emerald-700/40 bg-emerald-900/40 p-3 text-sm text-emerald-100 flex items-center justify-between">
               <span>Item added. Check your cart to proceed to checkout.</span>
               <Button size="sm" onClick={() => setCartOpen(true)}>Open Cart</Button>
             </div>
@@ -227,24 +227,24 @@ export default function Brainrot() {
                 const effStock = stockOverrides[it.id] ?? it.stock;
                 const soldOut = qty >= effStock;
                 return (
-                  <div key={it.id} className="group relative overflow-hidden rounded-2xl border border-amber-700/30 bg-amber-900/20 p-3 transition-transform duration-500 ease-out hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-900/20 hover:-translate-y-0.5 hover:scale-[1.02] animate-in fade-in-0 slide-in-from-bottom-2" style={{ animationDelay: `${(idx % 12) * 40}ms` }}>
-                    <div className="relative aspect-square overflow-hidden rounded-xl ring-1 ring-amber-700/20 group-hover:ring-yellow-500/30 transition">
+                  <div key={it.id} className="group relative overflow-hidden rounded-2xl border border-emerald-700/30 bg-emerald-900/20 p-3 transition-transform duration-500 ease-out hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-900/20 hover:-translate-y-0.5 hover:scale-[1.02] animate-in fade-in-0 slide-in-from-bottom-2" style={{ animationDelay: `${(idx % 12) * 40}ms` }}>
+                    <div className="relative aspect-square overflow-hidden rounded-xl ring-1 ring-emerald-700/20 group-hover:ring-emerald-500/30 transition">
                       <img src={it.image} alt={it.name} className="h-full w-full object-cover transition duration-500 ease-out group-hover:brightness-110" />
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                       <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-70">
-                        <div className="absolute -inset-10 bg-[radial-gradient(circle_at_30%_20%,rgba(252,211,77,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(250,204,21,0.3),transparent_40%)]" />
+                        <div className="absolute -inset-10 bg-[radial-gradient(circle_at_30%_20%,rgba(110,231,183,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(52,211,153,0.3),transparent_40%)]" />
                       </div>
                       <div className="absolute right-2 top-2 rounded-md bg-[#050B1F]/80 px-2 py-1 text-xs text-blue-100 ring-1 ring-blue-900/60">Stock: {Math.max(0, (stockOverrides[it.id] ?? it.stock) - qty)}</div>
                       <div className="absolute inset-x-2 bottom-2 translate-y-8 opacity-0 will-change-transform transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-                        <Button disabled={soldOut} onClick={() => addToCart(it)} className="w-full h-9 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 disabled:opacity-60">{soldOut ? "Sold Out" : "Add to Cart"}</Button>
+                        <Button disabled={soldOut} onClick={() => addToCart(it)} className="w-full h-9 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 disabled:opacity-60">{soldOut ? "Sold Out" : "Add to Cart"}</Button>
                       </div>
                     </div>
                     <div className="mt-3">
                       <div className="flex items-center gap-2">
                         <h3 className="text-sm font-semibold">{it.name}</h3>
-                        <span className="rounded-md bg-amber-900/60 px-2 py-0.5 text-[11px] ring-1 ring-amber-700/40">{priceFmt.format(toLocalRounded(it.priceUSD))}</span>
+                        <span className="rounded-md bg-emerald-900/60 px-2 py-0.5 text-[11px] ring-1 ring-emerald-700/40">{priceFmt.format(toLocalRounded(it.priceUSD))}</span>
                       </div>
-                      <p className="mt-1 text-xs text-amber-200/80">Limited • Instant delivery</p>
+                      <p className="mt-1 text-xs text-emerald-200/80">Limited • Instant delivery</p>
                     </div>
                   </div>
                 );
@@ -255,22 +255,22 @@ export default function Brainrot() {
 
         {/* Floating Cart (page only) with bubble */}
         {showBubble && !cartOpen && (
-          <div className="fixed bottom-20 right-6 z-50 rounded-md border border-indigo-400/30 bg-indigo-950 px-3 py-2 text-xs text-indigo-100 shadow-lg animate-in fade-in-0 slide-in-from-bottom-2">
+          <div className="fixed bottom-20 right-6 z-50 rounded-md border border-emerald-400/30 bg-emerald-950 px-3 py-2 text-xs text-emerald-100 shadow-lg animate-in fade-in-0 slide-in-from-bottom-2">
             Click to open cart
-            <div className="absolute -bottom-1.5 right-4 h-3 w-3 rotate-45 border-b border-r border-indigo-400/30 bg-indigo-950" />
+            <div className="absolute -bottom-1.5 right-4 h-3 w-3 rotate-45 border-b border-r border-emerald-400/30 bg-emerald-950" />
           </div>
         )}
 
         <Popover open={cartOpen} onOpenChange={setCartOpen}>
           <PopoverTrigger asChild>
-            <Button className="fixed bottom-4 right-4 z-50 h-12 w-12 rounded-full shadow-xl shadow-blue-900/20 bg-[#081433] hover:bg-[#0A1F4D] ring-1 ring-blue-800/40 p-0">
+            <Button className="fixed bottom-4 right-4 z-50 h-12 w-12 rounded-full shadow-xl shadow-emerald-900/20 bg-[#081433] hover:bg-[#0A1F4D] ring-1 ring-emerald-800/40 p-0">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-white">
                 <path d="M6 6h15l-1.5 9h-12L6 6Z" stroke="currentColor" strokeWidth="2"/>
                 <circle cx="9" cy="20" r="1" fill="currentColor"/>
                 <circle cx="18" cy="20" r="1" fill="currentColor"/>
               </svg>
               {cart.length > 0 && (
-                <span className="absolute -top-1 -right-1 grid h-5 w-5 place-content-center rounded-full bg-white text-[11px] font-bold text-sky-700 ring-2 ring-sky-600">{cart.length}</span>
+                <span className="absolute -top-1 -right-1 grid h-5 w-5 place-content-center rounded-full bg-white text-[11px] font-bold text-emerald-700 ring-2 ring-emerald-600">{cart.length}</span>
               )}
             </Button>
           </PopoverTrigger>
@@ -299,7 +299,7 @@ export default function Brainrot() {
                 <span className="text-sm text-muted-foreground">Total</span>
                 <span className="text-sm font-semibold">{priceFmt.format(totalLocalRounded)}</span>
               </div>
-              <Button disabled={groupedCart.length === 0} onClick={() => { if (groupedCart.length === 0) return; setCartOpen(false); setCheckoutOpen(true); }} className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 disabled:opacity-60">Go to Checkout</Button>
+              <Button disabled={groupedCart.length === 0} onClick={() => { if (groupedCart.length === 0) return; setCartOpen(false); setCheckoutOpen(true); }} className="w-full bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 disabled:opacity-60">Go to Checkout</Button>
             </div>
           </PopoverContent>
         </Popover>
