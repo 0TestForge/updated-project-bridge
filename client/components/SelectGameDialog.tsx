@@ -39,9 +39,9 @@ export function SelectGameDialog({ children }: { children: React.ReactNode }) {
             "url(https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F7521b0d700404c0ea553f70afb05386d?format=webp&width=1200)",
         }}
       >
-        <div className="bg-gradient-to-b from-emerald-950/60 via-emerald-900/45 to-emerald-900/30 p-6 pt-4">
+        <div className="bg-gradient-to-b from-violet-950/60 via-violet-900/45 to-violet-900/30 p-6 pt-4">
           <DialogHeader className="-mt-1">
-            <DialogTitle className="text-2xl md:text-3xl font-extrabold tracking-wider uppercase text-emerald-50 drop-shadow-sm">Choose a Game</DialogTitle>
+            <DialogTitle className="text-2xl md:text-3xl font-extrabold tracking-wider uppercase text-violet-50 drop-shadow-sm">Choose a Game</DialogTitle>
           </DialogHeader>
           <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {items.map((it) => (
@@ -51,7 +51,7 @@ export function SelectGameDialog({ children }: { children: React.ReactNode }) {
                 onClick={() => {
                   const e = new CustomEvent("game:selected", { detail: it });
                   window.dispatchEvent(e);
-                  if (it.id === "grow") window.location.assign("/grow");
+                  if (it.id === "grow") window.location.assign("/grow"); else if (it.id === "mm") window.location.assign("/mm"); else if (it.id === "brainrot") window.location.assign("/brainrot");
                 }}
               >
                 <span className="relative inline-flex h-20 w-24 shrink-0 overflow-hidden rounded-xl border border-white/10">

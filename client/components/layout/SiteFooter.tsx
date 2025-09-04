@@ -3,10 +3,14 @@ export function SiteFooter() {
     <footer className="border-t border-white/5 mt-24">
       <div className="container py-10 grid gap-8 md:grid-cols-3 text-sm">
         <div>
-          <div className="flex items-center gap-2 font-bold">
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-emerald-500 via-teal-500 to-green-600" />
-            RO-CART
-          </div>
+          <a href="/" className="flex items-center gap-2">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Fb2458d5aab5847128a2b754080dc1712%2F59703aedd2134312974c10a72e7d28f4?format=webp&width=220"
+              alt="RO-CART logo"
+              className="h-8 md:h-9 w-auto object-contain"
+            />
+            <span className="sr-only">RO-CART</span>
+          </a>
           <p className="mt-3 text-muted-foreground max-w-xs">Fast, safe, and automated delivery of your favorite in‑game items.</p>
         </div>
         <div className="grid grid-cols-2 gap-6">

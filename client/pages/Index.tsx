@@ -25,12 +25,12 @@ export default function Index() {
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
                   <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-emerald-300">
                     <img src="https://cdn.builder.io/api/v1/image/assets%2Fb2458d5aab5847128a2b754080dc1712%2Fb416b769d9a641f7b46b99fef8220342?format=webp&width=64" alt="icon" className="h-3.5 w-3.5 object-contain" />
-                    4.7 on Trustpilot
+                    4.9 stars rating
                   </span>
                   Safe checkout • Instant delivery
                 </div>
                 <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl leading-tight">
-                  Instantly Buy Your Favorite Items — Fast, Safe, and Easy!
+                  Instantly Buy Your Favorite Items Fast, Safe, and Easy!
                 </h1>
                 <p className="mt-4 text-lg text-muted-foreground">
                   The fastest, safest shop for in‑game items with automated delivery. Get what you need in seconds.

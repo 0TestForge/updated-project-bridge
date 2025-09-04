@@ -20,37 +20,20 @@ type FilterKey = "all" | "pets" | "plants";
 
 type CartLine = { id: string; qty: number; item: Item };
 
-// Catalog
+// Catalog (Steal a Brainrot)
 export const ITEMS: Item[] = [
-  // Pets
-  { id: "red-bee", name: "Red Bee", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F40acc6f230a14be08df9c83c5a4cd86b?format=webp&width=800", category: "pet", stock: 2, priceUSD: 12 },
-  { id: "duck-rider", name: "Duck Rider", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fe0a787ae09e544ad86c9e7539ba74673?format=webp&width=800", category: "pet", stock: 5, priceUSD: 10 },
-  { id: "queen-bee", name: "Queen Bee", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F831fc4b380f74e84807494f864231c10?format=webp&width=800", category: "pet", stock: 3, priceUSD: 20 },
-  { id: "wasp", name: "Neon Wasp", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F68399c1d84594269b8f08b17a00b1cfe?format=webp&width=800", category: "pet", stock: 4, priceUSD: 8 },
-  { id: "shiba", name: "Shiba", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F51c35bbfa0e048d7afd6486443420b28?format=webp&width=800", category: "pet", stock: 7, priceUSD: 15 },
-  { id: "octo", name: "Octo", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fe36ba05f95ec473bb9a3f3c57a5b9c5a?format=webp&width=800", category: "pet", stock: 2, priceUSD: 25 },
-  { id: "phoenix", name: "Phoenix", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F9a6dd0d8e0c045c5aed3027e21a03d42?format=webp&width=800", category: "pet", stock: 1, priceUSD: 30 },
-  { id: "rainbow-bee", name: "Rainbow Bee", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fbb714220133840b29940ad0dccecbcdd?format=webp&width=800", category: "pet", stock: 3, priceUSD: 18 },
-  { id: "rainbow-wasp", name: "Rainbow Wasp", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F91504519181b4952af7ec765f387df90?format=webp&width=800", category: "pet", stock: 2, priceUSD: 19 },
-  { id: "gold-wasp", name: "Gold Wasp", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fff742625b1a243cfa235fdb3907709a7?format=webp&width=800", category: "pet", stock: 1, priceUSD: 40 },
-  { id: "rainbow-queen", name: "Rainbow Queen Bee", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F2d1eaecfc0244aa5a8868c12666ab96b?format=webp&width=800", category: "pet", stock: 1, priceUSD: 45 },
-  { id: "orange-queen", name: "Orange Queen Bee", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F01330ed5e86942bca9fa7baeffce32c4?format=webp&width=800", category: "pet", stock: 2, priceUSD: 28 },
-  { id: "pink-bee", name: "Pink Bee", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F78eb5b34035f45c8955032974100aa81?format=webp&width=800", category: "pet", stock: 4, priceUSD: 14 },
-  { id: "dino", name: "Dino", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F39e5c800109f4927aee8f94d892c985c?format=webp&width=800", category: "pet", stock: 2, priceUSD: 22 },
-  { id: "masked-dog", name: "Masked Dog", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F1b31d21ebe104f6ab0e12819d6415b9a?format=webp&width=800", category: "pet", stock: 6, priceUSD: 13 },
-  { id: "rainbow-dog", name: "Rainbow Dog", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F94bd90a7d545485c9c48ce81ff1c70a5?format=webp&width=800", category: "pet", stock: 3, priceUSD: 21 },
-  { id: "griffin", name: "Griffin", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F3a8f470936c44599b6a1abb84450d540?format=webp&width=800", category: "pet", stock: 1, priceUSD: 55 },
-  { id: "wyrm", name: "Wyrm", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F0107e74ca582478bba915fdfd7926563?format=webp&width=800", category: "pet", stock: 1, priceUSD: 38 },
-  // Plants
-  { id: "sprout-pack", name: "Purple Sprout Pack", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fbe60cc732b1b44f28e3af656696011b5?format=webp&width=800", category: "plant", stock: 8, priceUSD: 9 },
-  { id: "sprout-single", name: "Purple Sprout", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F68f58bd0f45b49ba8cb0aa48accb095b?format=webp&width=800", category: "plant", stock: 20, priceUSD: 3 },
-  { id: "sprout-trio", name: "Sprout Trio", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fb468b81480d949fba738072a39790a00?format=webp&width=800", category: "plant", stock: 10, priceUSD: 6 },
-  { id: "sheckles-8qd", name: "8QD Sheckles", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Faf8dccb5646b4daa91e9036be29a7e2a?format=webp&width=800", category: "plant", stock: 5, priceUSD: 12 },
-  { id: "sheckles-744t", name: "744T Sheckles", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fd8fdd0b63ad242cabb2077fe8a1612e9?format=webp&width=800", category: "plant", stock: 5, priceUSD: 14 },
-  { id: "sheckles-8qd-single", name: "8QD Sheckles Single", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F4a894719237a4270879984e87ef2d897?format=webp&width=800", category: "plant", stock: 12, priceUSD: 4 },
+  { id: "rainbow-jelly", name: "Rainbow Jelly", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F169a88c0acba49598cbd59a09cecf89b?format=webp&width=800", category: "pet", stock: 3, priceUSD: 24 },
+  { id: "pink-jelly", name: "Pink Jelly", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fea97cb06c9f94dcdab63d483c3045b29?format=webp&width=800", category: "pet", stock: 6, priceUSD: 12 },
+  { id: "blue-buddy", name: "Blue Buddy", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fa96746eea6de44398e517335bbeaff31?format=webp&width=800", category: "pet", stock: 5, priceUSD: 10 },
+  { id: "clock-man", name: "Clock Man", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F373e5049046e407ea9297de000a34c67?format=webp&width=800", category: "plant", stock: 2, priceUSD: 18 },
+  { id: "orb-guardian", name: "Orb Guardian", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F83efa1150ae34674af248da0f970dd84?format=webp&width=800", category: "plant", stock: 7, priceUSD: 9 },
+  { id: "rainbow-orb-guardian", name: "Rainbow Orb Guardian", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fc484f773196d4d0ea2201b746fd2a424?format=webp&width=800", category: "plant", stock: 3, priceUSD: 22 },
+  { id: "mystery-box-rainbow", name: "Mystery Box (Rainbow)", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fb2caaccf03164e9d8e36bf9a222132da?format=webp&width=800", category: "pet", stock: 4, priceUSD: 15 },
+  { id: "mystery-box-black", name: "Mystery Box (Black)", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2Fa7a5daba5aa6401ba4bb382ca655e928?format=webp&width=800", category: "pet", stock: 5, priceUSD: 11 },
+  { id: "mystery-box-red", name: "Mystery Box (Red)", image: "https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F8e6163635e3a4b61bf9f1170fee344ef?format=webp&width=800", category: "pet", stock: 5, priceUSD: 13 },
 ];
 
-export default function GrowGarden() {
+export default function Brainrot() {
   // Filters and search
   const [filter, setFilter] = useState<FilterKey>("all");
   const [q, setQ] = useState("");
@@ -97,7 +80,6 @@ export default function GrowGarden() {
     const loadRate = async () => {
       try {
         if (currency === "USD") { setRate(1); return; }
-        // Call our server proxy to avoid CORS and blockers
         let r = 1;
         try {
           const res = await fetch(`/api/rates?base=USD&symbols=${encodeURIComponent(currency)}`);
@@ -110,7 +92,6 @@ export default function GrowGarden() {
       } catch { if (mounted) setRate(1); }
     };
     loadRate();
-    // restore scroll
     setTimeout(() => window.scrollTo({ top: prevY.current, behavior: "instant" as ScrollBehavior }), 0);
     return () => { mounted = false; };
   }, [currency]);
@@ -217,30 +198,23 @@ export default function GrowGarden() {
   return (
     <div>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-900 via-emerald-950 to-black" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-amber-900 via-amber-950 to-black" />
         <div className="container py-10 md:py-14">
-          {/* Top banner */}
-          <div className="relative h-40 md:h-56 overflow-hidden rounded-2xl border border-emerald-700/30">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F63c936af87bb4092b7300f333f376cfe%2F9793911789cb412182d65fd16d14b29b?format=webp&width=1200" alt="Grow a Garden banner" className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 to-transparent" />
-            <div className="absolute left-4 bottom-4">
-              <span className="inline-block rounded-lg bg-emerald-900/70 px-3 py-1.5 text-sm font-bold uppercase tracking-widest text-emerald-100 ring-1 ring-emerald-700/40">Grow a Garden</span>
-            </div>
+          <div className="flex items-center justify-between">
+            <span className="inline-block rounded-lg bg-amber-900/70 px-3 py-1.5 text-sm font-bold uppercase tracking-widest text-amber-100 ring-1 ring-amber-700/40">Steal a Brainrot</span>
           </div>
 
           <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-wrap items-center gap-2">
-              <Button variant={filter === "all" ? "default" : "secondary"} size="sm" onClick={() => setFilter("all")}>All</Button>
-              <Button variant={filter === "pets" ? "default" : "secondary"} size="sm" onClick={() => setFilter("pets")}>Pets</Button>
-              <Button variant={filter === "plants" ? "default" : "secondary"} size="sm" onClick={() => setFilter("plants")}>Plants</Button>
+              <Button variant="default" size="sm" onClick={() => setFilter("all")}>All</Button>
             </div>
             <div className="w-full md:w-80">
-              <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search" className="bg-emerald-950/40 border-emerald-800/50" />
+              <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search" className="bg-amber-950/40 border-amber-800/50" />
             </div>
           </div>
 
           {showHint && (
-            <div className="mt-4 rounded-lg border border-emerald-700/40 bg-emerald-900/40 p-3 text-sm text-emerald-100 flex items-center justify-between">
+            <div className="mt-4 rounded-lg border border-amber-700/40 bg-amber-900/40 p-3 text-sm text-amber-100 flex items-center justify-between">
               <span>Item added. Check your cart to proceed to checkout.</span>
               <Button size="sm" onClick={() => setCartOpen(true)}>Open Cart</Button>
             </div>
@@ -253,24 +227,24 @@ export default function GrowGarden() {
                 const effStock = stockOverrides[it.id] ?? it.stock;
                 const soldOut = qty >= effStock;
                 return (
-                  <div key={it.id} className="group relative overflow-hidden rounded-2xl border border-emerald-700/30 bg-emerald-900/20 p-3 transition-transform duration-500 ease-out hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-900/20 hover:-translate-y-0.5 hover:scale-[1.02] animate-in fade-in-0 slide-in-from-bottom-2" style={{ animationDelay: `${(idx % 12) * 40}ms` }}>
-                    <div className="relative aspect-square overflow-hidden rounded-xl ring-1 ring-emerald-700/20 group-hover:ring-sky-500/30 transition">
+                  <div key={it.id} className="group relative overflow-hidden rounded-2xl border border-amber-700/30 bg-amber-900/20 p-3 transition-transform duration-500 ease-out hover:border-amber-500/40 hover:shadow-lg hover:shadow-amber-900/20 hover:-translate-y-0.5 hover:scale-[1.02] animate-in fade-in-0 slide-in-from-bottom-2" style={{ animationDelay: `${(idx % 12) * 40}ms` }}>
+                    <div className="relative aspect-square overflow-hidden rounded-xl ring-1 ring-amber-700/20 group-hover:ring-yellow-500/30 transition">
                       <img src={it.image} alt={it.name} className="h-full w-full object-cover transition duration-500 ease-out group-hover:brightness-110" />
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                       <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-70">
-                        <div className="absolute -inset-10 bg-[radial-gradient(circle_at_30%_20%,rgba(82,134,255,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(56,189,248,0.3),transparent_40%)]" />
+                        <div className="absolute -inset-10 bg-[radial-gradient(circle_at_30%_20%,rgba(252,211,77,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(250,204,21,0.3),transparent_40%)]" />
                       </div>
                       <div className="absolute right-2 top-2 rounded-md bg-[#050B1F]/80 px-2 py-1 text-xs text-blue-100 ring-1 ring-blue-900/60">Stock: {Math.max(0, (stockOverrides[it.id] ?? it.stock) - qty)}</div>
                       <div className="absolute inset-x-2 bottom-2 translate-y-8 opacity-0 will-change-transform transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-                        <Button disabled={soldOut} onClick={() => addToCart(it)} className="w-full h-9 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 disabled:opacity-60">{soldOut ? "Sold Out" : "Add to Cart"}</Button>
+                        <Button disabled={soldOut} onClick={() => addToCart(it)} className="w-full h-9 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 disabled:opacity-60">{soldOut ? "Sold Out" : "Add to Cart"}</Button>
                       </div>
                     </div>
                     <div className="mt-3">
                       <div className="flex items-center gap-2">
                         <h3 className="text-sm font-semibold">{it.name}</h3>
-                        <span className="rounded-md bg-emerald-900/60 px-2 py-0.5 text-[11px] ring-1 ring-emerald-700/40">{priceFmt.format(toLocalRounded(it.priceUSD))}</span>
+                        <span className="rounded-md bg-amber-900/60 px-2 py-0.5 text-[11px] ring-1 ring-amber-700/40">{priceFmt.format(toLocalRounded(it.priceUSD))}</span>
                       </div>
-                      <p className="mt-1 text-xs text-emerald-200/80">Limited • Instant delivery</p>
+                      <p className="mt-1 text-xs text-amber-200/80">Limited • Instant delivery</p>
                     </div>
                   </div>
                 );
@@ -325,7 +299,7 @@ export default function GrowGarden() {
                 <span className="text-sm text-muted-foreground">Total</span>
                 <span className="text-sm font-semibold">{priceFmt.format(totalLocalRounded)}</span>
               </div>
-              <Button disabled={groupedCart.length === 0} onClick={() => { if (groupedCart.length === 0) return; setCartOpen(false); setCheckoutOpen(true); }} className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 disabled:opacity-60">Go to Checkout</Button>
+              <Button disabled={groupedCart.length === 0} onClick={() => { if (groupedCart.length === 0) return; setCartOpen(false); setCheckoutOpen(true); }} className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 disabled:opacity-60">Go to Checkout</Button>
             </div>
           </PopoverContent>
         </Popover>

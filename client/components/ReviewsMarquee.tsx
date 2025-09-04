@@ -38,49 +38,50 @@ function Stars({ rating }: { rating: number }) {
 
 export function ReviewsMarquee({ count = 982 }: { count?: number }) {
   const items = [...BASE, ...BASE];
-  const avg = (BASE.reduce((s, r) => s + r.rating, 0) / BASE.length).toFixed(1);
+  const avgText = "4.9";
+  const starsValue = 5;
 
   return (
     <div className="w-full">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-5 px-4">
-        <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-3 py-1.5 text-xs md:text-sm text-emerald-100 ring-1 ring-emerald-400/25 shadow-sm shadow-emerald-800/30">
-          <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-emerald-300">
+        <span className="inline-flex items-center gap-2 rounded-full bg-violet-500/20 px-3 py-1.5 text-xs md:text-sm text-violet-100 ring-1 ring-violet-400/25 shadow-sm shadow-violet-800/30">
+          <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-violet-300">
             <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
           </svg>
-          <strong className="font-semibold text-emerald-100">{count.toLocaleString()} user reviews</strong>
+          <strong className="font-semibold text-violet-100">{count.toLocaleString()} user reviews</strong>
         </span>
 
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1 text-amber-300">
-            <Stars rating={Math.round(Number(avg))} />
+            <Stars rating={starsValue} />
           </div>
-          <span className="text-sm font-medium text-emerald-100">{avg} average rating</span>
-          <span className="text-xs text-emerald-200/80">Based on {count.toLocaleString()} reviews</span>
+          <span className="text-sm font-medium text-violet-100">{avgText} stars rating</span>
+          <span className="text-xs text-violet-200/80">Based on {count.toLocaleString()} reviews</span>
         </div>
 
         <div className="relative w-full overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-emerald-950/30 to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-emerald-950/30 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-violet-950/30 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-violet-950/30 to-transparent" />
 
           <div className="marquee-track flex w-max gap-4 pr-4">
             {items.map((r, i) => (
               <Tooltip key={`${r.text}-${i}`}>
                 <TooltipTrigger asChild>
                   <div
-                    className="group min-w-[280px] md:min-w-[380px] max-w-sm cursor-default rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-5 md:p-6 text-left text-emerald-50 shadow-xl shadow-emerald-800/10 backdrop-blur-md transition-transform duration-300 ease-out hover:scale-[1.03] hover:shadow-emerald-700/20 hover:ring-1 hover:ring-emerald-400/30 float-slow"
+                    className="group min-w-[280px] md:min-w-[380px] max-w-sm cursor-default rounded-2xl border border-violet-400/20 bg-violet-500/10 p-5 md:p-6 text-left text-violet-50 shadow-xl shadow-violet-800/10 backdrop-blur-md transition-transform duration-300 ease-out hover:scale-[1.03] hover:shadow-violet-700/20 hover:ring-1 hover:ring-violet-400/30 float-slow"
                     style={{ animationDelay: `${(i % 6) * 120}ms` }}
                   >
                     <div className="flex items-center justify-between">
                       <Stars rating={r.rating} />
-                      <span className="text-xs text-emerald-200/75">{r.user}</span>
+                      <span className="text-xs text-violet-200/75">{r.user}</span>
                     </div>
                     <p className="mt-2 text-base md:text-lg font-semibold leading-snug">{r.text}</p>
-                    <p className="mt-1 text-xs text-emerald-200/90">
+                    <p className="mt-1 text-xs text-violet-200/90">
                       {r.note}
                     </p>
                   </div>
                 </TooltipTrigger>
-                <TooltipContent side="top" className="text-emerald-50">
+                <TooltipContent side="top" className="text-violet-50">
                   {r.note}
                 </TooltipContent>
               </Tooltip>
